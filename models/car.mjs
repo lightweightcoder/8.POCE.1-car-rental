@@ -1,19 +1,16 @@
-export default function itemModel(sequelize, DataTypes) {
-  return sequelize.define('item', {
+export default function carModel(sequelize, DataTypes) {
+  return sequelize.define('car', {
     id: {
       allowNull: false,
       autoIncrement: true,
       primaryKey: true,
       type: DataTypes.INTEGER,
     },
-    name: {
+    manufacturer: {
       type: DataTypes.STRING,
     },
-    description: {
+    model: {
       type: DataTypes.STRING,
-    },
-    price: {
-      type: DataTypes.DECIMAL(10, 2),
     },
     createdAt: {
       allowNull: false,

@@ -1,33 +1,34 @@
-export default function orderItemModel(sequelize, DataTypes) {
-  return sequelize.define('order_items', {
+export default function bookingModel(sequelize, DataTypes) {
+  return sequelize.define('booking', {
     id: {
       allowNull: false,
       autoIncrement: true,
       primaryKey: true,
       type: DataTypes.INTEGER,
     },
-    quantity: {
-      type: DataTypes.INTEGER,
+    userEmail: {
+      type: DataTypes.STRING,
     },
-    order_id: {
-      type: DataTypes.INTEGER,
-      references: {
-        model: 'orders',
-        key: 'id',
-      },
-    },
-    item_id: {
-      type: DataTypes.INTEGER,
-      references: {
-        model: 'items',
-        key: 'id',
-      },
-    },
-    created_at: {
+    startDate: {
       allowNull: false,
       type: DataTypes.DATE,
     },
-    updated_at: {
+    carId: {
+      type: DataTypes.INTEGER,
+      references: {
+        model: 'cars',
+        key: 'id',
+      },
+    },
+    endDate: {
+      allowNull: false,
+      type: DataTypes.DATE,
+    },
+    createdAt: {
+      allowNull: false,
+      type: DataTypes.DATE,
+    },
+    updatedAt: {
       allowNull: false,
       type: DataTypes.DATE,
     },

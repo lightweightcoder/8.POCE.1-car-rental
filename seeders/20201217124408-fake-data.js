@@ -2,20 +2,19 @@ const faker = require('faker');
 
 module.exports = {
   up: async (queryInterface) => {
-    const itemsList = [];
+    const carsList = [];
 
-    for (let i = 0; i < 100; i += 1) {
-      itemsList.push({
-        name: faker.commerce.product(),
-        description: faker.commerce.productDescription(),
-        price: faker.commerce.price(),
+    for (let i = 0; i < 20; i += 1) {
+      carsList.push({
+        manufacturer: faker.vehicle.manufacturer(),
+        model: faker.vehicle.model(),
         created_at: new Date(),
         updated_at: new Date(),
       });
     }
 
     try {
-      const result = await queryInterface.bulkInsert('items', itemsList);
+      const result = await queryInterface.bulkInsert('cars', carsList);
       console.log(result);
     } catch (error) {
       console.log(error);
@@ -23,6 +22,6 @@ module.exports = {
   },
 
   down: async (queryInterface) => {
-    await queryInterface.bulkDelete('items', null, {});
+    await queryInterface.bulkDelete('cars', null, {});
   },
 };

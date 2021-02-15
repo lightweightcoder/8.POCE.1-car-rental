@@ -12,7 +12,7 @@ export default function initBookingsController(db) {
     try {
       const booking = await db.Booking.create(request.body);
 
-      response.send(booking);
+      response.send({ booking });
     } catch (error) {
       console.log('create booking error', error);
     }

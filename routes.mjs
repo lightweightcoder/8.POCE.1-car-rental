@@ -2,12 +2,11 @@ import { resolve } from 'path';
 import db from './models/index.mjs';
 
 import initCarsController from './controllers/cars.mjs';
-import initOrdersController from './controllers/orders.mjs';
+import initBookingsController from './controllers/bookings.mjs';
 
 export default function routes(app) {
-  const OrdersController = initOrdersController(db);
-  app.post('/orders', OrdersController.create);
-  app.get('/orders', OrdersController.index);
+  const BookingsController = initBookingsController(db);
+  app.post('/bookings', BookingsController.create);
 
   const CarsController = initCarsController(db);
   app.get('/cars', CarsController.index);

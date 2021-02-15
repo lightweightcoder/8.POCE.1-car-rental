@@ -1,10 +1,10 @@
 export default function initBookingsController(db) {
   const index = async (request, response) => {
     try {
-      const orders = await db.Order.findAll();
-      response.send({ orders });
+      const bookings = await db.Booking.findAll();
+      response.send({ bookings });
     } catch (error) {
-      console.log(error);
+      console.log('get bookings error', error);
     }
   };
 

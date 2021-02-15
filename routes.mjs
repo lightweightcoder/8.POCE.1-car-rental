@@ -8,6 +8,8 @@ export default function routes(app) {
   const BookingsController = initBookingsController(db);
   app.post('/bookings', BookingsController.create);
 
+  app.get('/bookings', BookingsController.index);
+
   const CarsController = initCarsController(db);
   app.get('/cars', CarsController.index);
 
